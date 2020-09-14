@@ -18,28 +18,70 @@ limitations under the License.
 const app = (() => {
 
   function getImageName(country) {
-
-    // create and return a promise
-
+    country = country.toLowerCase();
+    const promiseOfImageName = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (country === 'spain' || country === 'chile' || country === 'peru') {
+          resolve(country + '.png');
+        } else {
+          reject(Error('Didn\'t receive a valid country name!'));
+        }
+      }, 1000);
+    });
+    console.log(promiseOfImageName);
+    return promiseOfImageName;    
   }
 
   function isSpain(country) {
 
-    // Optional - create and return a promise that resolves if input is "Spain"
-
+    const promise = new Promise((resolve, reject) => {
+      // do a thing, possibly async, then...
+    
+      if (country === 'Spain') {
+        resolve("Stuff worked!");
+      }
+      else {
+        reject(Error("It broke"));
+      }
+    });
+    return promise; 
   }
 
   function flagChain(country) {
-
-    // use the promise
-
+    return getImageName(country)
+    .catch(fallbackName)
+    .then(fetchFlag)
+    .then(processFlag)
+    .then(appendFlag)
+    .catch(logError); 
   }
-
+  
   function allFlags(promiseList) {
-
-    // use promise.all
-
+    return Promise.all(promiseList)
+    .catch(returnFalse);
   }
+
+  const promises = [
+    getImageName('Spain'),
+    getImageName('Chile'),
+    getImageName('Peru')
+  ];
+
+  allFlags(promises).then(result => {
+    console.log(result);
+  });
+
+  const promise1 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 500, 'one');
+  });
+
+  const promise2 = new Promise((resolve, reject) => {
+    setTimeout(reject, 100, 'two');
+  });
+
+  Promise.race([promise1, promise2])
+  .then(logSuccess)
+  .catch(logError);
 
 
   // call the allFlags function
