@@ -16,9 +16,9 @@
 'use strict';
 
 SpaceRace.prototype.addShip = function(data) {
-  /*
-    TODO: Implement adding a document
-  */
+  alert("added ship: " + data.name)
+  const collection = firebase.firestore().collection('ships');
+  return collection.add(data);
 };
 
 SpaceRace.prototype.getAllShips = function(render) {

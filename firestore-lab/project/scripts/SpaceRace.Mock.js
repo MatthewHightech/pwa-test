@@ -19,6 +19,7 @@
  * Adds a set of mock Ships to the Cloud Firestore.
  */
 SpaceRace.prototype.addMockShips = function() {
+  alert("mockdata"); 
   const promises = [];
 
   for (let i = 0; i < 10; i++) {

@@ -43,6 +43,8 @@ const buildSw = () => {
       'js\/animation.js',
       'images\/home\/*.jpg',
       'images\/icon\/*.svg',
+      'pages/offline.html',
+      'pages/404.html'
     ]
   }).then(resources => {
     console.log(`Injected ${resources.count} resources for precaching, ` +

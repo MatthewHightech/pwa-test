@@ -35,12 +35,12 @@ limitations under the License.
 
   <main></main>
 
-  <div hidden class="template" id="main">
+  <div class="template" id="main">
     <div id="cards" class="cards-container">
     </div>
   </div>
 
-  <div hidden class="template" id="no-ships">
+  <div class="template" id="no-ships">
     <div id="rocket-container">
       <img src="/images/rocket.svg" />
       <p class="text">This app is connected to the Firebase project "<b data-fir-content="projectId"></b>".</p>
@@ -52,7 +52,7 @@ limitations under the License.
     </div>
   </div>
 
-  <div hidden class="template" id="ship-card">
+  <div class="template" id="ship-card">
     <div class="ship-card">
       <div class="card-image">
         <img hidden data-fir-image="photo" src="#" />
@@ -74,7 +74,7 @@ limitations under the License.
     </div>
   </div>
 
-  <div hidden class="template" id="add-card">
+  <div class="template" id="add-card">
     <div class="ship-card">
       <img id="add-card-image" class="card-image" src="images/rocket-form.svg" />
       <form action="#" method="post">
@@ -116,6 +116,10 @@ limitations under the License.
   </div>
 
   <!-- TODO - add Firebase libraries here -->
+  <script src="/__/firebase/4.9.0/firebase-app.js"></script>
+  <script src="/__/firebase/4.9.0/firebase-auth.js"></script>
+  <script src="/__/firebase/4.9.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
 
   <script src="https://unpkg.com/navigo@6"></script>
 
@@ -123,5 +127,12 @@ limitations under the License.
   <script src="/scripts/SpaceRace.View.js"></script>
   <script src="/scripts/SpaceRace.Mock.js"></script>
   <script src="/scripts/SpaceRace.Data.js"></script>
+
+  <script src="/__/firebase/4.9.0/firebase-app.js"></script>
+  <script src="/__/firebase/4.9.0/firebase-auth.js"></script>
+  <script src="/__/firebase/4.9.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+
+
 </body>
 </html>
